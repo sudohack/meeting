@@ -6,6 +6,8 @@ Deathbymeetings::Application.routes.draw do
   resources :meetings
 
   resources :employees
+  
+  resources :attends
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

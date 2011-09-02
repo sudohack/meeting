@@ -1,0 +1,25 @@
+<h1>Listing Attends</h1>
+
+<table>
+  <tr>
+    <th>Meeting</th>
+    <th>Employee</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @attends.each do |attend| %>
+  <tr>
+    <td><%= Meeting.find(attend.meeting_id).name %></td>
+    <td><%= Employee.find(attend.employee_id).name %></td>
+    <td><%= link_to 'Show', attend %></td>
+    <td><%= link_to 'Edit', edit_attend_path(attend) %></td>
+    <td><%= link_to 'Destroy', attend, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Attend', new_attend_path %>
