@@ -4,20 +4,21 @@
   <tr>
     <th>Name</th>
     <th>Length</th>
-    <th></th>
-    <th></th>
+    <th>Who was there</th>
+    <th>Total cost</th>
     <th></th>
   </tr>
 
-<% @meetings.each do |meeting| %>
+<% Meeting.all.each do |meeting| %>
   <tr>
-    <td><%= meeting.name %></td>
+    <td><%= link_to meeting.name, meeting %></td>
     <td><%= meeting.length %></td>
 	<td>
 		<% meeting.employees.each do |employee| %>
 			<table>
-				<tr><td><%= employee.name %></td></tr>
-				<tr><td><%= employee.rate %></td></tr>
+				<tr><td><%= link_to employee.name, employee_path(employee.id) %>
+						<%= link_to "Remove", @attend, :confirm => 'Are you sure?', :method => :delete %>
+						</td></tr>
 			</table>
 		<% end %>
 	</td>
