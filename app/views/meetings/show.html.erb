@@ -10,6 +10,17 @@
   <%= @meeting.length %>
 </p>
 
+<p>
+  <b>Who was there:</b>
+		<% @meeting.employees.each do |employee| %>  
+			</br><%= link_to employee.name, employee_path(employee.id) %>
+		<% end %>
+</p>
+
+<p>
+	<%= link_to "Add Employee", new_attend_path(@attend) %>
+</p>
+
 
 <%= link_to 'Edit', edit_meeting_path(@meeting) %> |
 <%= link_to 'Back', meetings_path %>

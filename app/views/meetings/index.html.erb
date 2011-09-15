@@ -17,7 +17,6 @@
 		<% meeting.employees.each do |employee| %>
 			<table>
 				<tr><td><%= link_to employee.name, employee_path(employee.id) %>
-						<%= link_to "Remove", @attend, :confirm => 'Are you sure?', :method => :delete %>
 						</td></tr>
 			</table>
 		<% end %>
